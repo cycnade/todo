@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/73c05b7351.js" crossorigin="anonymous"></script>
+	<style type="text/css">
+		body{
+			font-family: 'Baloo Paaji 2', cursive;
+			background: #BA5370;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F4E2D8, #BA5370);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #F4E2D8, #BA5370); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+		}
+		a{
+			background:black;
+
+		}
+		img{
+			display: none;
+			background: #e74c3c;
+			box-sizing: border-box;
+
+		}
+		ul{
+			list-style: none;
+			padding-left: 0px;
+			font-family: 'Baloo Paaji 2', cursive;
+		}
+		input{
+			font-size: 18px;
+			background-color: #f7f7f7;
+			width: 100%;
+			padding: 13px 13px;
+			box-sizing: border-box;
+		}
+		input:focus{
+			background:#fff;
+			border:3px solid #2980b9;
+		}
+		li{
+			list-style: none;
+			background:white;
+			height:40px;
+			color: #666;
+			line-height: 40px; 
+		}
+		li:nth-child(2n){
+			background:#f7f7f7;
+		}
+		#container{
+			width:350px;
+			margin:100px auto;
+			border:2px solid gray;
+			box-shadow: 0 0 3px rgba(0,0,0,0.9);
+			background:#f7f7f7;
+		}
+		.done{
+			font-weight: 100;
+			color: gray;
+			text-decoration: line-through;
+		}
+	</style>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script
+  src="https://code.jquery.com/jquery-3.5.0.js"
+  integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+  crossorigin="anonymous"></script>
+	<title>Todo List</title>
+</head>
+<body>
+<div id="container">
+	 <h1 style="background-color:#2980b9; margin-bottom: 0px; font-family: 'Baloo Paaji 2', cursive;">To-DO-LIST <a><i style="float: right" class="fas fa-plus haha"></i><a></h1>
+	<input style="font-family: 'Baloo Paaji 2', cursive;" id="hide" type="text" name="Add new tOdo" placeholder="Add new Todo">
+<ul id="new" style="margin-top: 0px">
+
+</ul>
+</div>
+<script>
+	$(".haha").on("click",function(){
+		$("#hide").slideToggle()
+	})
+	$("input").keypress(function(event){
+  			if (event.which==13) {
+  				var text= $("input").val()
+  				console.log("you typed "+text)
+  				$("input").val("")
+  				$("#new").append('<li><a href="#"><img src="trash.png"></a>'+text+'</li>')
+  			}
+  		})
+
+$(document).on("mouseenter","#new li",function(){
+	$(this).find("img").slideDown(100).css("display","inline-block")
+})
+
+
+$(document).on("mouseleave","#new li",function(){
+	$(this).find("img").slideUp(5).css("display","inline-block")
+})
+$(document).on("click","img",function(event){
+	$(this).parents("li").fadeOut(500,function(){
+		$(this).remove()
+		
+	})
+	event.stopPropagation()
+})
+
+	
+ $(document).on('click', '#new li', function(){
+
+     $(this).toggleClass("done")
+
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</div>
+</body>
+</html>

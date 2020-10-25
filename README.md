@@ -1,2 +1,2 @@
 # todo app
-visit : https://cycnade.github.io/todo/
+visit : https://farazkhawaja.github.io/todo/
